@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class HomeActivity extends Activity {
 
@@ -30,5 +31,17 @@ public class HomeActivity extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+public void selectOption(View view){
+		
+		switch (view.getId()){
+			case R.id.new_search:
+				break;
+			case R.id.favorites:
+				break;
+			case R.id.recent_searches:
+				break;
+		}
 	}
 }

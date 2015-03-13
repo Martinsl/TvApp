@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?> 
+
+	<LinearLayout 
+	    xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:layout_width="match_parent"
+		android:layout_height="match_parent" 
+		android:gravity="center_vertical"
+		android:orientation="vertical" >
+		
+		<ImageView 
+		    android:layout_width="wrap_content" 
+		    android:layout_height="wrap_content" 
+		    android:layout_gravity="center" 
+		    android:layout_marginBottom="50dp"
+		    android:contentDescription="@string/logo_description"
+		    android:src="@drawable/ic_launcher" />
+
+		<TextView
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginBottom="20dp"
+		    android:labelFor="@+id/user"
+		    android:text="@string/signin"
+		    android:textSize="16sp" />
+		
+		<EditText 
+	    	android:id="@+id/user"
+	    	android:layout_width="match_parent" 
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginBottom="20dp" 
+	    	android:inputType="text" >
+	    	
+			<requestFocus /> 
+		</EditText> 
+		
+		<TextView
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginBottom="20dp"
+		    android:text="@string/password"
+		    android:labelFor="@+id/password"
+		    android:textSize="16sp" />
+ 
+		<EditText 
+		    android:id="@+id/password" 
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content" 
+		    android:layout_marginBottom="20dp"
+		    android:inputType="textPassword" />
+
+		<GridLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:columnCount="1" >
+
+		    <Button
+		        android:layout_width="174dp"
+		        android:layout_height="wrap_content"
+		        android:layout_column="0"
+		        android:layout_gravity="center_horizontal|top"
+		        android:layout_row="0"
+		        android:onClick="loginOnClick"
+		        android:text="@string/signin" />
+
+		</GridLayout>
+		
+	</LinearLayout>
