@@ -11,5 +11,8 @@
     <string name="favorite_programs">Favorites</string>
     <string name="old_searches">Old Searches</string>
     <string name="auth_error">Authentication error</string>
+    <string name="channel_name">Channel</string>
+    <string name="date_picker">Select Date</string>
+    <string name="title_activity_search">SearchActivity</string>
 
 </resources>

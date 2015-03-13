@@ -17,7 +17,7 @@ public class LoginActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.login_activity);
+		setContentView(R.layout.activity_login);
 		
 		user = (EditText) findViewById(R.id.user);
 		password = (EditText) findViewById(R.id.password);
@@ -47,7 +47,7 @@ public class LoginActivity extends Activity {
 		String informedPass = password.getText().toString();
 		
 		if(informedUser.equals("user") && informedPass.equals("123")) {
-			startActivity(new Intent(this, HomeActivity.class));
+			startActivity(new Intent(this, SearchActivity.class));
 		} else {
 			String errorMessage = getString(R.string.auth_error);
 			Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show();
