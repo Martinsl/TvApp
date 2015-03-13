@@ -10,5 +10,6 @@
     <string name="new_search">New Search</string>
     <string name="favorite_programs">Favorites</string>
     <string name="old_searches">Old Searches</string>
+    <string name="auth_error">Authentication error</string>
 
 </resources>
