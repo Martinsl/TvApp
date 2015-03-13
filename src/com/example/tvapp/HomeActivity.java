@@ -5,13 +5,15 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class HomeActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_login);
+		setContentView(R.layout.home_activity);
 	}
 
 	@Override
@@ -33,8 +35,11 @@ public class HomeActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 	
-public void selectOption(View view){
-		
+	public void selectOption(View view){
+		TextView textView = (TextView) view;
+		String opcao = "Option: " + textView.getText().toString();
+		Toast.makeText(this, opcao, Toast.LENGTH_SHORT).show();
+
 		switch (view.getId()){
 			case R.id.new_search:
 				break;
