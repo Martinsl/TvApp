@@ -59,7 +59,7 @@
 		        android:layout_column="0"
 		        android:layout_gravity="center_horizontal|top"
 		        android:layout_row="0"
-		        android:onClick="loginOnClick"
+		        android:onClick="searchOnClick"
 		        android:text="@string/signin" />
 
 		</GridLayout>

@@ -28,9 +28,11 @@ public final class R {
         public static final int search=0x7f020003;
     }
     public static final class id {
-        public static final int action_settings=0x7f080009;
+        public static final int action_settings=0x7f08000b;
+        public static final int button1=0x7f08000a;
         public static final int button_datePicker=0x7f080007;
         public static final int channel_name=0x7f080006;
+        public static final int date=0x7f080009;
         public static final int date_display=0x7f080008;
         public static final int favorites=0x7f080001;
         public static final int new_search=0x7f080000;
@@ -48,19 +50,20 @@ public final class R {
         public static final int main=0x7f070000;
     }
     public static final class string {
-        public static final int action_settings=0x7f050002;
+        public static final int action_settings=0x7f050001;
         public static final int app_name=0x7f050000;
-        public static final int auth_error=0x7f050009;
-        public static final int channel_name=0x7f05000a;
-        public static final int date_picker=0x7f05000b;
-        public static final int favorite_programs=0x7f050007;
-        public static final int hello_world=0x7f050001;
-        public static final int logo_description=0x7f050005;
-        public static final int new_search=0x7f050006;
-        public static final int old_searches=0x7f050008;
-        public static final int password=0x7f050004;
-        public static final int signin=0x7f050003;
-        public static final int title_activity_search=0x7f05000c;
+        public static final int auth_error=0x7f050008;
+        public static final int channel_name=0x7f050009;
+        public static final int date=0x7f05000c;
+        public static final int date_picker=0x7f05000a;
+        public static final int favorite_programs=0x7f050006;
+        public static final int logo_description=0x7f050004;
+        public static final int new_search=0x7f050005;
+        public static final int old_searches=0x7f050007;
+        public static final int password=0x7f050003;
+        public static final int search_button=0x7f05000d;
+        public static final int signin=0x7f050002;
+        public static final int title_activity_search=0x7f05000b;
     }
     public static final class style {
         /** 
