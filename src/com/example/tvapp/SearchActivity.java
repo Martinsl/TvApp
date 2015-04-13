@@ -33,7 +33,7 @@ public class SearchActivity extends Activity {
 			}
 		});
 	}
-	
+
 	DatePickerDialog.OnDateSetListener listener = new OnDateSetListener() {
 		
 		@Override

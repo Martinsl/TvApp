@@ -39,20 +39,6 @@ public class LoginActivity extends Activity {
 		user = (EditText) findViewById(R.id.user);
 		password = (EditText) findViewById(R.id.password);
 		
-		
-		/*HttpClient client = new DefaultHttpClient();
-		HttpGet request = new HttpGet("http://api-tv-program.herokuapp.com/get-tv-program/MDO/13-04-2015");
-
-		HttpResponse response;
-		try {
-			response = client.execute(request);
-
-			Log.d("Response of GET request", response.toString());
-		} catch (ClientProtocolException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}*/
 		Log.v("teste", "ok");
 		httpParameters = new BasicHttpParams();
 		HttpConnectionParams.setConnectionTimeout(httpParameters,
@@ -88,7 +74,7 @@ public class LoginActivity extends Activity {
 		String informedPass = password.getText().toString();
 		
 		if(informedUser.equals("user") && informedPass.equals("123")) {
-			startActivity(new Intent(this, SearchActivity.class));
+			startActivity(new Intent(this, HomeActivity.class));
 		} else {
 			String errorMessage = getString(R.string.auth_error);
 			Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show();
@@ -137,25 +123,6 @@ public class LoginActivity extends Activity {
 				Log.v("TVAPP","ASYNC ERROR" + e.getMessage());
 			}
 			return result;
-			
-			
-			
-			/**
-			HttpClient client = new DefaultHttpClient();
-			HttpGet request = new HttpGet("http://api-tv-program.herokuapp.com/get-tv-program/MDO/13-04-2015");
-
-			HttpResponse response;
-			try {
-				response = client.execute(request);
-
-				Log.d("Response of GET request", response.toString());
-			} catch (ClientProtocolException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			return null;
-			**/
 		}
 		
 		private StringBuilder getResult(HttpResponse response)

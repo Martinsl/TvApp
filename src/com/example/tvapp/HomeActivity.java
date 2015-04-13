@@ -1,6 +1,7 @@
 package com.example.tvapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -42,6 +43,7 @@ public class HomeActivity extends Activity {
 
 		switch (view.getId()){
 			case R.id.new_search:
+				startActivity(new Intent(this, SearchActivity.class));
 				break;
 			case R.id.favorites:
 				break;
