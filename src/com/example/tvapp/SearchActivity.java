@@ -17,18 +17,19 @@ public class SearchActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setTitle("New Search");
 		setContentView(R.layout.activity_search);
 		
 		display = (TextView) findViewById(R.id.date_display);
 		Button dateButton = (Button) findViewById(R.id.button_datePicker);
 		dateButton.setOnClickListener(new View.OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				int year = calendar.get(Calendar.YEAR);
 				int month = calendar.get(Calendar.MONTH) + 1;
 				int day = calendar.get(Calendar.DAY_OF_MONTH);
-				
+
 				new DatePickerDialog(SearchActivity.this, listener, year, month, day).show();
 			}
 		});

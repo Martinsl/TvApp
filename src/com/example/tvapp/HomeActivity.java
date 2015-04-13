@@ -14,6 +14,7 @@ public class HomeActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setTitle("Home");
 		setContentView(R.layout.activity_home);
 	}
 
@@ -38,7 +39,7 @@ public class HomeActivity extends Activity {
 	
 	public void selectOption(View view){
 		TextView textView = (TextView) view;
-		String opcao = "Option: " + textView.getText().toString();
+		String opcao = "Option: "  + textView.getText().toString();
 		Toast.makeText(this, opcao, Toast.LENGTH_SHORT).show();
 
 		switch (view.getId()){
