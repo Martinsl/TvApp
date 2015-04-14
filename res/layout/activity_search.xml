@@ -2,17 +2,6 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
 
-    <TextView
-        android:id="@+id/textView1"
-        android:labelFor="@+id/channel_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="132dp"
-        android:text="@string/channel_name" />
-
     <Button
         android:id="@+id/button_datePicker"
         android:layout_width="wrap_content"
@@ -32,18 +21,6 @@
         android:visibility="invisible"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <EditText
-        android:id="@+id/channel_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView1"
-        android:layout_below="@+id/textView1"
-        android:ems="10"
-        android:inputType="text" >
-
-        <requestFocus />
-    </EditText>
-
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
@@ -51,5 +28,15 @@
         android:layout_below="@+id/date_display"
         android:layout_centerHorizontal="true"
         android:text="@string/search_button" />
+
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteTextView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button_datePicker"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="84dp"
+        android:ems="10"
+        android:text="@string/auto_channel" />
 
 </RelativeLayout>

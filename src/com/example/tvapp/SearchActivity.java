@@ -1,25 +1,34 @@
 package com.example.tvapp;
 
 import java.util.Calendar;
-import android.app.Activity;
+
 import android.app.DatePickerDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
-public class SearchActivity extends Activity {
+public class SearchActivity extends Base {
+	
 	Calendar calendar = Calendar.getInstance();
 	TextView display;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setTitle("New Search");
 		setContentView(R.layout.activity_search);
 		
+		AutoCompleteTextView channelNameField;
+		channelNameField = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView1);
+
+		ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,channelNames);
+		channelNameField.setAdapter(adapter);
+				   
 		display = (TextView) findViewById(R.id.date_display);
 		Button dateButton = (Button) findViewById(R.id.button_datePicker);
 		dateButton.setOnClickListener(new View.OnClickListener() {
@@ -36,7 +45,7 @@ public class SearchActivity extends Activity {
 	}
 
 	DatePickerDialog.OnDateSetListener listener = new OnDateSetListener() {
-		
+
 		@Override
 		public void onDateSet(DatePicker view, int year, int monthOfYear,
 				int dayOfMonth) {

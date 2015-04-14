@@ -6,9 +6,59 @@ import android.app.Activity;
 
 public class Base extends Activity {
 	public String baseURL = "http://api-tv-program.herokuapp.com/";
+	public String channelJson = "{\"programs\":[{\"time\":\"00:00\",\"name\":\"Barter Kings\","
+			+ "\"link\":\"uf=1&action=programa&programa=0000322745&evento=000000536241919&operadora=14&canal=MDO&gds=&hgh=\"},"
+			+ "{\"time\":\"00:30\",\"name\":\"Barter Kings\","
+			+ "\"link\":\"uf=1&action=programa&programa=0000322745&evento=000000536241919&operadora=14&canal=MDO&gds=&hgh=\"},"
+			+ "{\"time\":\"01:00\",\"name\":\"Eby Tapetes\","
+			+ "\"link\":\"uf=1&action=programa&programa=0000322745&evento=000000536241919&operadora=14&canal=MDO&gds=&hgh=\"},"
+			+ "{\"time\":\"03:00\",\"name\":\"Barter Kings\","
+			+ "\"link\":\"uf=1&action=programa&programa=0000322745&evento=000000536241919&operadora=14&canal=MDO&gds=&hgh=\"}]}";
 	
+	public String[] channelAcron = new String[] {
+			"MDO","APL","NEW","BSP","BAN","BPO","BBC","BEM","BIT","BMG","CBR","FUT","RUR",
+			"CNV","CAR","MNX","CLI","CNE","CNN","CNT","CCE","DWL","DIS","DHD","HEA","DIK",
+			"TRV","DTU","DNY","DNH","PHD","EET","ESB","ESP","SPI","EUR","FAS","BRA","GLS",
+			"FOX","FHD","FLI","FNE","FSP","CFX","FAS","GLN","GHD","GNT","HAL","HBO","HBE",
+			"HFA","HBH","HPL","HPE","HFE","HB2","LIV","SAT","MNG","KID","MXE","MAX","MAP",
+			"MPE","MPX","MGM","MTV","MTH","MSW","MSH","NGH","SUP","NBR","NHK","NJR","NIC",
+			"OFF","TRA","PLA","135","121","RAI","POA","REC","RCN","RTV","VDA","SCC","NAC",
+			"HOT","SHO","SIC","SET","ANX","SPA","SPH","SPE","SPO","SP2","SP3","SCI","TBS",
+			"TCM","TCH","TC2","T2H","TC5","TC6","TC3","TC4","T4H","TC1","TC3","TVV","TGC",
+			"HIS","TRV","TLH","TNT","TNH","TOC","TRU","TCM","TED","CAM","CNV","CUL","ESC",
+			"JUS","RTB","SEN","TV5","TVV","TED","TVE","TV5","USA","VH1","VHD","VHS","VIV",
+			"WBT","WOO"	
+	};
 	
-	public static final HashMap<String, String> channelName = new HashMap<String, String>(){{
+	public String[] channelNames = new String[] {
+			"A&E Mundo","Animal Planet","Band News","Band Sports","Bandeirantes",
+			"Bandeirantes Sao Paulo","BBC World","Bem Simples","Bloomberg","Boomerang",
+			"Canal Brasil","Canal Futura","Canal Rural","Canção Nova","Cartoon Network",
+			"Cinemax","Clima Tempo","CNN Espanhol","CNN International","CNT","Comedy Central",
+			"Deutsche Welle","Discovery Channel","Discovery HD Theater","Discovery Home & Health",
+			"Discovery Kids","Discovery Travel & Living","Discovery Turbo","Disney Channel",
+			"Disney HD","Disney Jr.","E! Entertainment","ESPN Brasil","ESPN International",
+			"Esporte Interativo","EuroChannel","Fashion TV","FEA - Film & Arts","For Man",
+			"Fox","Fox + NatGeo HD","Fox Life","Fox News","Fox Sports","FX","Glitz","Globo News",
+			"Globosat HD","GNT","Hallmark","HBO","HBO e","HBO Family","HBO HD","HBO Plus",
+			"HBO Plus e","HBO Signature","HBO 2","Investigação Discovery","i-SAT","Management TV",
+			"Jetix","Max","Max HD","Max Prime","Max Prime e","Megapix","MGM","MTV Brasil",
+			"MTV Hits","Multishow","Multishow HD","Nat Geo Wild HD","National Geographic",
+			"NBR","NHK","Nick Jr","Nickelodeon","Off","People+Arts","Playboy TV",
+			"Premiere Combate","PR3 Premiere Futebol Clube","RAI (italiano)","RBS TV",
+			"Record","Record News","Rede TV","Rede Vida","SBT","Sesc TV","Sexy Hot","Shoptime",
+			"SIC Internacional","Sony Entertainment Television","Sony Spin","Space","Space HD",
+			"Speed Channel","SPORTV","SPORTV 2","SPORTV 3","SyFy","TBS muitodivertido","TCM",
+			"Telecine HD","Telecine Action","Telecine Action HD","Telecine Cult","Telecine Fun",
+			"Telecine Light","Telecine Pipoca","Telecine Pipoca HD","Telecine Premium",
+			"Telecine Touch","Terra Viva","The Golf Channel","The History Channel","TLC",
+			"TLC HD","TNT","TNT HD","Tooncast","TruTV","Turner Classic Movies","TV Brasil",
+			"TV Câmara","TV Canção Nova","TV Cultura","TV Escola","TV Justiça","TV Rá Tim Bum",
+			"TV Senado","TV5Monde","TV Terra Viva","TVE Brasil","TVE Internacional","TV5MONDE",
+			"Universal Channel","VH1","VH1 HD","VH1 Mega Hits","Viva","Warner","WooHoo"
+	};
+	
+	public static final HashMap<String, String> acronymHash = new HashMap<String, String>(){{
 		put("MDO","A&E Mundo");
 		put("APL","Animal Planet");
 		put("NEW","Band News");

@@ -29,18 +29,18 @@ public final class R {
     }
     public static final class id {
         public static final int action_settings=0x7f08000e;
-        public static final int button1=0x7f08000c;
-        public static final int button_datePicker=0x7f080009;
+        public static final int autoCompleteTextView1=0x7f08000b;
+        public static final int button1=0x7f08000a;
+        public static final int button_datePicker=0x7f080007;
         public static final int channelSchedule=0x7f080001;
         public static final int channelTitle=0x7f080000;
-        public static final int channel_name=0x7f080008;
-        public static final int date=0x7f08000b;
-        public static final int date_display=0x7f08000a;
+        public static final int date=0x7f080009;
+        public static final int date_display=0x7f080008;
         public static final int favorites=0x7f080003;
         public static final int new_search=0x7f080002;
         public static final int password=0x7f080006;
         public static final int recent_searches=0x7f080004;
-        public static final int textView1=0x7f080007;
+        public static final int textView1=0x7f08000c;
         public static final int textView2=0x7f08000d;
         public static final int user=0x7f080005;
     }
@@ -58,6 +58,7 @@ public final class R {
         public static final int action_settings=0x7f050001;
         public static final int app_name=0x7f050000;
         public static final int auth_error=0x7f050008;
+        public static final int auto_channel=0x7f050010;
         public static final int channel_name=0x7f050009;
         public static final int date=0x7f05000c;
         public static final int date_picker=0x7f05000a;

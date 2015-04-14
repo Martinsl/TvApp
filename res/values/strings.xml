@@ -17,5 +17,6 @@
     <string name="search_button">Search</string>
     <string name="program_name">Program name</string>
     <string name="program_time">00:00</string>
+    <string name="auto_channel">Channel Name</string>
 
 </resources>

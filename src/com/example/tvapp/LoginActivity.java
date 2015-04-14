@@ -11,7 +11,6 @@ import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -23,8 +22,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+import app.models.TvProgram;
 
-public class LoginActivity extends Activity {
+import com.google.gson.Gson;
+
+public class LoginActivity extends Base {
 
 	private EditText user;
 	private EditText password;
@@ -38,16 +40,22 @@ public class LoginActivity extends Activity {
 		
 		user = (EditText) findViewById(R.id.user);
 		password = (EditText) findViewById(R.id.password);
+		Gson gson = new Gson();
 		
+		TvProgram channel = gson.fromJson(channelJson, TvProgram.class);
+		String name = channel.programs.get(0).name;
+		String time = channel.programs.get(0).time;
+		Log.v("GSON", name+time);
+
+
 		Log.v("teste", "ok");
 		httpParameters = new BasicHttpParams();
 		HttpConnectionParams.setConnectionTimeout(httpParameters,
 				10000);
 		HttpConnectionParams.setSoTimeout(httpParameters, 20000);
 		httpClient = new DefaultHttpClient(httpParameters);
-		
+
 		new makeGetRequest(this).execute("http://api-tv-program.herokuapp.com/get-tv-program/MDO/13-04-2015");
-		
 	}
 
 	@Override
@@ -117,8 +125,7 @@ public class LoginActivity extends Activity {
 				//getRequest.setHeader("accept","text/plain");
 				HttpResponse response = httpClient.execute(getRequest);
 				result = getResult(response).toString();
-				Log.v("Response of GET request", result);
-				
+				Log.v("Response of GET request", "oi");
 			} catch (Exception e) {
 				Log.v("TVAPP","ASYNC ERROR" + e.getMessage());
 			}
