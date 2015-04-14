@@ -1,5 +1,6 @@
 package com.example.tvapp;
 
+import java.text.DecimalFormat;
 import java.util.Calendar;
 
 import android.app.DatePickerDialog;
@@ -11,11 +12,14 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SearchActivity extends Base {
 	
 	Calendar calendar = Calendar.getInstance();
 	TextView display;
+	AutoCompleteTextView channelNameField;
+	String date;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -23,13 +27,12 @@ public class SearchActivity extends Base {
 		setTitle("New Search");
 		setContentView(R.layout.activity_search);
 		
-		AutoCompleteTextView channelNameField;
 		channelNameField = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView1);
 
 		String[] channels = getResources().getStringArray(R.array.channel_names);
 		ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,channels);
 		channelNameField.setAdapter(adapter);
-				   
+		
 		display = (TextView) findViewById(R.id.date_display);
 		Button dateButton = (Button) findViewById(R.id.button_datePicker);
 		dateButton.setOnClickListener(new View.OnClickListener() {
@@ -50,8 +53,21 @@ public class SearchActivity extends Base {
 		@Override
 		public void onDateSet(DatePicker view, int year, int monthOfYear,
 				int dayOfMonth) {
+			//http://stackoverflow.com/questions/10203924/displaying-date-in-a-double-digit-format
+			date = (dayOfMonth<10?("0"+dayOfMonth):(dayOfMonth))
+					+ "-" + (monthOfYear<10?("0"+monthOfYear):(monthOfYear))
+					+ "-" + year;
+			
 			display.setVisibility(View.VISIBLE);
-			display.setText("Selected date: " + dayOfMonth + "/" + monthOfYear + "/" + year);
+			display.setText("Selected date: " + date);
 		}
 	};
+	
+	public void searchOnClick(View v) {
+		String programName = channelNameField.getText().toString();
+		String programAcron = acronymHash.get(programName);
+		String searchURL = baseURL + "get-tv-program/" + programAcron + "/" + date;
+
+		Toast.makeText(this, searchURL, Toast.LENGTH_SHORT).show();
+	}
 }

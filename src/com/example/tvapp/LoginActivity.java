@@ -81,7 +81,7 @@ public class LoginActivity extends Base {
 		String informedUser = user.getText().toString();
 		String informedPass = password.getText().toString();
 		
-		if(informedUser.equals("user") && informedPass.equals("123")) {
+		if(informedUser.equals("") && informedPass.equals("")) {
 			startActivity(new Intent(this, HomeActivity.class));
 		} else {
 			String errorMessage = getString(R.string.auth_error);

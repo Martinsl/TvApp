@@ -27,6 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/date_display"
         android:layout_centerHorizontal="true"
+        android:onClick="searchOnClick"
         android:text="@string/search_button" />
 
     <AutoCompleteTextView
