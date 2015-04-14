@@ -13,9 +13,10 @@ import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 
 import android.app.DatePickerDialog;
-import android.app.ProgressDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,6 +27,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
+import app.models.TvProgram;
 
 public class SearchActivity extends Base {
 	
@@ -55,7 +57,7 @@ public class SearchActivity extends Base {
 			@Override
 			public void onClick(View v) {
 				int year = calendar.get(Calendar.YEAR);
-				int month = calendar.get(Calendar.MONTH) + 1;
+				int month = calendar.get(Calendar.MONTH);
 				int day = calendar.get(Calendar.DAY_OF_MONTH);
 
 				new DatePickerDialog(SearchActivity.this, listener, year, month, day).show();
@@ -70,7 +72,7 @@ public class SearchActivity extends Base {
 				int dayOfMonth) {
 			//http://stackoverflow.com/questions/10203924/displaying-date-in-a-double-digit-format
 			date = (dayOfMonth<10?("0"+dayOfMonth):(dayOfMonth))
-					+ "-" + (monthOfYear<10?("0"+monthOfYear):(monthOfYear))
+					+ "-" + (monthOfYear<10?("0"+(monthOfYear+1)):(monthOfYear+1))
 					+ "-" + year;
 
 			display.setVisibility(View.VISIBLE);
@@ -82,6 +84,7 @@ public class SearchActivity extends Base {
 		String programName = channelNameField.getText().toString();
 		String programAcron = acronymHash.get(programName);
 		String searchURL = baseURL + "get-tv-program/" + programAcron + "/" + date;
+		String result =  "";
 
 		Toast.makeText(this, searchURL, Toast.LENGTH_SHORT).show();
 		
@@ -123,7 +126,9 @@ public class SearchActivity extends Base {
 				//getRequest.setHeader("accept","text/plain");
 				HttpResponse response = httpClient.execute(getRequest);
 				result = getResult(response).toString();
-				Log.v("Response of GET request", result);
+				//Log.v("Response of GET request", result);
+				channelGson = gson.fromJson(result, TvProgram.class);
+				params[1] = result;
 			} catch (Exception e) {
 				Log.v("TVAPP","ASYNC ERROR" + e.getMessage());
 			}
@@ -136,6 +141,9 @@ public class SearchActivity extends Base {
 			
 			if (dialog.isShowing())
 				dialog.dismiss();
+			Intent intent = new Intent(getBaseContext(), DisplayListActivity.class);
+			intent.putExtra("ChannelsJson", result);
+			startActivity(intent);
 		}
 
 		

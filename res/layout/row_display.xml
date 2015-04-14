@@ -3,7 +3,7 @@
     android:layout_height="fill_parent" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/program_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -13,11 +13,11 @@
         android:text="@string/program_name" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/program_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView1"
-        android:layout_alignBottom="@+id/textView1"
+        android:layout_alignBaseline="@+id/program_name"
+        android:layout_alignBottom="@+id/program_name"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="38dp"
         android:text="@string/program_time" />
