@@ -26,7 +26,8 @@ public class SearchActivity extends Base {
 		AutoCompleteTextView channelNameField;
 		channelNameField = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView1);
 
-		ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,channelNames);
+		String[] channels = getResources().getStringArray(R.array.channel_names);
+		ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,channels);
 		channelNameField.setAdapter(adapter);
 				   
 		display = (TextView) findViewById(R.id.date_display);

@@ -18,5 +18,152 @@
     <string name="program_name">Program name</string>
     <string name="program_time">00:00</string>
     <string name="auto_channel">Channel Name</string>
+    <string-array name="channel_names">
+        <item>A\u0026E Mundo</item>
+		<item>Animal Planet</item>
+		<item>Band News</item>
+		<item>Band Sports</item>
+		<item>Bandeirantes</item>
+		<item>Bandeirantes Sao Paulo</item>
+		<item>BBC World</item>
+		<item>Bem Simples</item>
+		<item>Bloomberg</item>
+		<item>Boomerang</item>
+		<item>Canal Brasil</item>
+		<item>Canal Futura</item>
+		<item>Canal Rural</item>
+		<item>Canção Nova</item>
+		<item>Cartoon Network</item>
+		<item>Cinemax</item>
+		<item>Clima Tempo</item>
+		<item>CNN Espanhol</item>
+		<item>CNN International</item>
+		<item>CNT</item>
+		<item>Comedy Central</item>
+		<item>Deutsche Welle</item>
+		<item>Discovery Channel</item>
+		<item>Discovery HD Theater</item>
+		<item>Discovery Home \u0026 Health</item>
+		<item>Discovery Kids</item>
+		<item>Discovery Travel \u0026 Living</item>
+		<item>Discovery Turbo</item>
+		<item>Disney Channel</item>
+		<item>Disney HD</item>
+		<item>Disney Jr.</item>
+		<item>E! Entertainment</item>
+		<item>ESPN Brasil</item>
+		<item>ESPN International</item>
+		<item>Esporte Interativo</item>
+		<item>EuroChannel</item>
+		<item>Fashion TV</item>
+		<item>FEA - Film and Arts</item>
+		<item>For Man</item>
+		<item>Fox</item>
+		<item>Fox + NatGeo HD</item>
+		<item>Fox Life</item>
+		<item>Fox News</item>
+		<item>Fox Sports</item>
+		<item>FX</item>
+		<item>Glitz</item>
+		<item>Globo News</item>
+		<item>Globosat HD</item>
+		<item>GNT</item>
+		<item>Hallmark</item>
+		<item>HBO</item>
+		<item>HBO e</item>
+		<item>HBO Family</item>
+		<item>HBO HD</item>
+		<item>HBO Plus</item>
+		<item>HBO Plus e</item>
+		<item>HBO Signature</item>
+		<item>HBO 2</item>
+		<item>Investigação Discovery</item>
+		<item>i-SAT</item>
+		<item>Management TV</item>
+		<item>Jetix</item>
+		<item>Max</item>
+		<item>Max HD</item>
+		<item>Max Prime</item>
+		<item>Max Prime e</item>
+		<item>Megapix</item>
+		<item>MGM</item>
+		<item>MTV Brasil</item>
+		<item>MTV Hits</item>
+		<item>Multishow</item>
+		<item>Multishow HD</item>
+		<item>Nat Geo Wild HD</item>
+		<item>National Geographic</item>
+		<item>NBR</item>
+		<item>NHK</item>
+		<item>Nick Jr</item>
+		<item>Nickelodeon</item>
+		<item>Off</item>
+		<item>People+Arts</item>
+		<item>Playboy TV</item>
+		<item>Premiere Combate</item>
+		<item>PR3 Premiere Futebol Clube</item>
+		<item>RAI (italiano)</item>
+		<item>RBS TV</item>
+		<item>Record</item>
+		<item>Record News</item>
+		<item>Rede TV</item>
+		<item>Rede Vida</item>
+		<item>SBT</item>
+		<item>Sesc TV</item>
+		<item>Sexy Hot</item>
+		<item>Shoptime</item>
+		<item>SIC Internacional</item>
+		<item>Sony Entertainment Television</item>
+		<item>Sony Spin</item>
+		<item>Space</item>
+		<item>Space HD</item>
+		<item>Speed Channel</item>
+		<item>SPORTV</item>
+		<item>SPORTV 2</item>
+		<item>SPORTV 3</item>
+		<item>SyFy</item>
+		<item>TBS muitodivertido</item>
+		<item>TCM</item>
+		<item>Telecine HD</item>
+		<item>Telecine Action</item>
+		<item>Telecine Action HD</item>
+		<item>Telecine Cult</item>
+		<item>Telecine Fun</item>
+		<item>Telecine Light</item>
+		<item>Telecine Pipoca</item>
+		<item>Telecine Pipoca HD</item>
+		<item>Telecine Premium</item>
+		<item>Telecine Touch</item>
+		<item>Terra Viva</item>
+		<item>The Golf Channel</item>
+		<item>The History Channel</item>
+		<item>TLC</item>
+		<item>TLC HD</item>
+		<item>TNT</item>
+		<item>TNT HD</item>
+		<item>Tooncast</item>
+		<item>TruTV</item>
+		<item>Turner Classic Movies</item>
+		<item>TV Brasil</item>
+		<item>TV Câmara</item>
+		<item>TV Canção Nova</item>
+		<item>TV Cultura</item>
+		<item>TV Escola</item>
+		<item>TV Justiça</item>
+		<item>TV Rá Tim Bum</item>
+		<item>TV Senado</item>
+		<item>TV5Monde</item>
+		<item>TV Terra Viva</item>
+		<item>TVE Brasil</item>
+		<item>TVE Internacional</item>
+		<item>TV5MONDE</item>
+		<item>Universal Channel</item>
+		<item>VH1</item>
+		<item>VH1 HD</item>
+		<item>VH1 Mega Hits</item>
+		<item>Viva</item>
+		<item>Warner</item>
+		<item>WooHoo</item>
+    </string-array>
 
 </resources>
