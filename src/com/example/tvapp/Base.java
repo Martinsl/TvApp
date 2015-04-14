@@ -2,7 +2,10 @@ package com.example.tvapp;
 
 import java.util.HashMap;
 
+import com.google.gson.Gson;
+
 import android.app.Activity;
+import app.models.TvProgram;
 
 public class Base extends Activity {
 	public String baseURL = "http://api-tv-program.herokuapp.com/";
@@ -15,20 +18,9 @@ public class Base extends Activity {
 			+ "{\"time\":\"03:00\",\"name\":\"Barter Kings3\","
 			+ "\"link\":\"uf=1&action=programa&programa=0000322745&evento=000000536241919&operadora=14&canal=MDO&gds=&hgh=\"}]}";
 	
-	public String[] channelAcron = new String[] {
-			"MDO","APL","NEW","BSP","BAN","BPO","BBC","BEM","BIT","BMG","CBR","FUT","RUR",
-			"CNV","CAR","MNX","CLI","CNE","CNN","CNT","CCE","DWL","DIS","DHD","HEA","DIK",
-			"TRV","DTU","DNY","DNH","PHD","EET","ESB","ESP","SPI","EUR","FAS","BRA","GLS",
-			"FOX","FHD","FLI","FNE","FSP","CFX","FAS","GLN","GHD","GNT","HAL","HBO","HBE",
-			"HFA","HBH","HPL","HPE","HFE","HB2","LIV","SAT","MNG","KID","MXE","MAX","MAP",
-			"MPE","MPX","MGM","MTV","MTH","MSW","MSH","NGH","SUP","NBR","NHK","NJR","NIC",
-			"OFF","TRA","PLA","135","121","RAI","POA","REC","RCN","RTV","VDA","SCC","NAC",
-			"HOT","SHO","SIC","SET","ANX","SPA","SPH","SPE","SPO","SP2","SP3","SCI","TBS",
-			"TCM","TCH","TC2","T2H","TC5","TC6","TC3","TC4","T4H","TC1","TC3","TVV","TGC",
-			"HIS","TRV","TLH","TNT","TNH","TOC","TRU","TCM","TED","CAM","CNV","CUL","ESC",
-			"JUS","RTB","SEN","TV5","TVV","TED","TVE","TV5","USA","VH1","VHD","VHS","VIV",
-			"WBT","WOO"	
-	};
+	Gson gson = new Gson();
+	
+	TvProgram channel = gson.fromJson(channelJson, TvProgram.class);
 	
 	public static final HashMap<String, String> acronymHash = new HashMap<String, String>(){{
 		put("A\u0026E Mundo","MDO");
