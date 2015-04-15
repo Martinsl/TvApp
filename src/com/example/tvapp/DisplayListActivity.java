@@ -2,6 +2,7 @@ package com.example.tvapp;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import app.models.Program;
 import app.models.Programs;
 import app.models.Rest;
 import app.models.TvProgram;
@@ -99,9 +101,10 @@ public class DisplayListActivity extends Base {
 			
 			if (dialog.isShowing())
 				dialog.dismiss();
-			//Intent intent = new Intent(getBaseContext(), DisplayListActivity.class);
-			//intent.putExtra("ChannelsJson", result);
-			//startActivity(intent);
+			
+			Intent intent = new Intent(getBaseContext(), ProgramActivity.class);
+			intent.putExtra("ProgramJson", programJson);//TODO: fix ws result
+			startActivity(intent);
 		}
 	}
 }
