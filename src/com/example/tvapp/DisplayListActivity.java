@@ -1,19 +1,7 @@
 package com.example.tvapp;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.params.BasicHttpParams;
-import org.apache.http.params.HttpConnectionParams;
-import org.apache.http.params.HttpParams;
-
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,6 +16,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import app.models.Programs;
+import app.models.Rest;
 import app.models.TvProgram;
 
 import com.google.gson.Gson;
@@ -35,9 +24,6 @@ import com.google.gson.Gson;
 public class DisplayListActivity extends Base {
 
 	ListView listView;
-	
-	private static HttpParams 			httpParameters;
-	private static DefaultHttpClient 	httpClient;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -64,12 +50,6 @@ public class DisplayListActivity extends Base {
 	                // TODO Auto-generated method stub
 	            	String programLink = channelG.programs.get(arg2).link;
 	                Log.v("############","Items " + programLink);
-	                
-	            	httpParameters = new BasicHttpParams();
-	        		HttpConnectionParams.setConnectionTimeout(httpParameters,
-	        				10000);
-	        		HttpConnectionParams.setSoTimeout(httpParameters, 20000);
-	        		httpClient = new DefaultHttpClient(httpParameters);
 
 	        		String searchURL = baseURL + "get-program/" + programLink;
 	        		new makeGetRequest(DisplayListActivity.this).execute(searchURL);	
@@ -105,13 +85,8 @@ public class DisplayListActivity extends Base {
 			
 			String result = "";
 			try {
-				HttpGet getRequest = new HttpGet(params[0]);
-				getRequest.setHeader("accept", "application/json");
-				//getRequest.setHeader("accept","text/plain");
-				HttpResponse response = httpClient.execute(getRequest);
-				result = getResult(response).toString();
+				result = Rest.get(params[0]);
 				Log.v("Response of GET request", result);
-				//programGson = gson.fromJson(result, TvProgram.class);
 			} catch (Exception e) {
 				Log.v("TVAPP","ASYNC ERROR" + e.getMessage());
 			}
@@ -127,19 +102,6 @@ public class DisplayListActivity extends Base {
 			//Intent intent = new Intent(getBaseContext(), DisplayListActivity.class);
 			//intent.putExtra("ChannelsJson", result);
 			//startActivity(intent);
-		}
-
-		
-		private StringBuilder getResult(HttpResponse response)
-				throws IllegalStateException, IOException {
-			StringBuilder result = new StringBuilder();
-			BufferedReader br = new BufferedReader(new InputStreamReader(
-					(response.getEntity().getContent())), 1024);
-			String output;
-			while ((output = br.readLine()) != null)
-				result.append(output);
-
-			return result;
 		}
 	}
 }

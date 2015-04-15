@@ -27,6 +27,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
+import app.models.Rest;
 import app.models.TvProgram;
 
 public class SearchActivity extends Base {
@@ -95,13 +96,6 @@ public class SearchActivity extends Base {
 
 			Toast.makeText(this, searchURL, Toast.LENGTH_SHORT).show();
 
-
-			httpParameters = new BasicHttpParams();
-			HttpConnectionParams.setConnectionTimeout(httpParameters,
-					10000);
-			HttpConnectionParams.setSoTimeout(httpParameters, 20000);
-			httpClient = new DefaultHttpClient(httpParameters);
-
 			new makeGetRequest(this).execute(searchURL);
 		}
 
@@ -130,13 +124,9 @@ public class SearchActivity extends Base {
 
 			String result = "";
 			try {
-				HttpGet getRequest = new HttpGet(params[0]);
-				getRequest.setHeader("accept", "application/json");
-				//getRequest.setHeader("accept","text/plain");
-				HttpResponse response = httpClient.execute(getRequest);
-				result = getResult(response).toString();
-				//Log.v("Response of GET request", result);
-				//channelGson = gson.fromJson(result, TvProgram.class);
+				Rest.setup();
+				result = Rest.get(params[0]);
+				Log.v("Response of GET request", result);
 			} catch (Exception e) {
 				Log.v("TVAPP","ASYNC ERROR" + e.getMessage());
 				finish();
@@ -153,18 +143,6 @@ public class SearchActivity extends Base {
 			Intent intent = new Intent(getBaseContext(), DisplayListActivity.class);
 			intent.putExtra("ChannelsJson", result);
 			startActivity(intent);
-		}
-
-		private StringBuilder getResult(HttpResponse response)
-				throws IllegalStateException, IOException {
-			StringBuilder result = new StringBuilder();
-			BufferedReader br = new BufferedReader(new InputStreamReader(
-					(response.getEntity().getContent())), 1024);
-			String output;
-			while ((output = br.readLine()) != null)
-				result.append(output);
-
-			return result;
 		}
 	}
 }

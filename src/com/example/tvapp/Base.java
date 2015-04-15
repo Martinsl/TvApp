@@ -3,21 +3,15 @@ package com.example.tvapp;
 import java.util.HashMap;
 
 import android.app.Activity;
-import app.models.TvProgram;
-
-import com.google.gson.Gson;
 
 public class Base extends Activity {
 	public String baseURL = "http://api-tv-program.herokuapp.com/";
-	public String channelJson = "{\"programs\":[{\"time\":\"00:00\",\"name\":\"Barter Kings\","
-			+ "\"link\":\"uf=1&action=programa&programa=0000322745&evento=000000536241919&operadora=14&canal=MDO&gds=&hgh=\"},"
-			+ "{\"time\":\"00:30\",\"name\":\"Barter Kings2\","
-			+ "\"link\":\"uf=1&action=programa&programa=0000322745&evento=000000536241919&operadora=14&canal=MDO&gds=&hgh=\"},"
-			+ "{\"time\":\"01:00\",\"name\":\"Eby Tapetes\","
-			+ "\"link\":\"uf=1&action=programa&programa=0000322745&evento=000000536241919&operadora=14&canal=MDO&gds=&hgh=\"},"
-			+ "{\"time\":\"03:00\",\"name\":\"Barter Kings3\","
-			+ "\"link\":\"uf=1&action=programa&programa=0000322745&evento=000000536241919&operadora=14&canal=MDO&gds=&hgh=\"}]}";
-
+	public String programJson = "{\"description\":"
+			+ "\"\n\t\t\tSinopse n\u00e3o dispon\u00edvel.\n\t\t\","
+			+ "\"details\":\"Variedades\u00a0/\u00a0Diversos\","
+			+ "\"Cor\":\"\u00a0 Colorido\",\"Classifica\u00e7\u00e3o\":"
+			+ "\"\u00a0 Programa livre\",\"name\":\"Eby Tapetes\"}";
+			
 	public static final HashMap<String, String> acronymHash = new HashMap<String, String>(){{
 		put("A\u0026E Mundo","MDO");
 		put("Animal Planet","APL");
