@@ -18,10 +18,6 @@ public class Base extends Activity {
 			+ "{\"time\":\"03:00\",\"name\":\"Barter Kings3\","
 			+ "\"link\":\"uf=1&action=programa&programa=0000322745&evento=000000536241919&operadora=14&canal=MDO&gds=&hgh=\"}]}";
 
-	Gson gson = new Gson();
-
-	TvProgram channelGson = gson.fromJson(channelJson, TvProgram.class);
-
 	public static final HashMap<String, String> acronymHash = new HashMap<String, String>(){{
 		put("A\u0026E Mundo","MDO");
 		put("Animal Planet","APL");

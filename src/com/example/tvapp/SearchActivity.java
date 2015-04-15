@@ -136,10 +136,10 @@ public class SearchActivity extends Base {
 				HttpResponse response = httpClient.execute(getRequest);
 				result = getResult(response).toString();
 				//Log.v("Response of GET request", result);
-				channelGson = gson.fromJson(result, TvProgram.class);
-				params[1] = result;
+				//channelGson = gson.fromJson(result, TvProgram.class);
 			} catch (Exception e) {
 				Log.v("TVAPP","ASYNC ERROR" + e.getMessage());
+				finish();
 			}
 			return result;
 		}
@@ -154,7 +154,6 @@ public class SearchActivity extends Base {
 			intent.putExtra("ChannelsJson", result);
 			startActivity(intent);
 		}
-
 
 		private StringBuilder getResult(HttpResponse response)
 				throws IllegalStateException, IOException {

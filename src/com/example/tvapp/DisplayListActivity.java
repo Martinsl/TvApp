@@ -26,6 +26,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 import app.models.Programs;
 import app.models.TvProgram;
 
@@ -76,12 +77,8 @@ public class DisplayListActivity extends Base {
 
 	        });
 		} else { 
-			// TODO: SHOW ERROR
-			listView = (ListView) findViewById(R.id.channelSchedule);
-		    ChannelAdapter adapter = new ChannelAdapter(this, channelGson);
-		    listView.setAdapter(adapter);
-		    
-		    
+			Toast.makeText(this, "Error populating list", Toast.LENGTH_SHORT).show();
+			 finish();
 		}
 	}
 	
