@@ -17,7 +17,7 @@
     <string name="search_button">Search</string>
     <string name="program_name">Program name</string>
     <string name="program_time">00:00</string>
-    <string name="auto_channel">Channel Name</string>
+    <string name="auto_channel">Please, type the channel name:</string>
     <string-array name="channel_names">
         <item>A\u0026E Mundo</item>
 		<item>Animal Planet</item>

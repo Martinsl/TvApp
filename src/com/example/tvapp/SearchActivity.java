@@ -30,7 +30,7 @@ import android.widget.Toast;
 import app.models.TvProgram;
 
 public class SearchActivity extends Base {
-	
+
 	Calendar calendar = Calendar.getInstance();
 	TextView display;
 	AutoCompleteTextView channelNameField;
@@ -49,7 +49,7 @@ public class SearchActivity extends Base {
 		String[] channels = getResources().getStringArray(R.array.channel_names);
 		ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,channels);
 		channelNameField.setAdapter(adapter);
-		
+
 		display = (TextView) findViewById(R.id.date_display);
 		Button dateButton = (Button) findViewById(R.id.button_datePicker);
 		dateButton.setOnClickListener(new View.OnClickListener() {
@@ -86,18 +86,27 @@ public class SearchActivity extends Base {
 		String searchURL = baseURL + "get-tv-program/" + programAcron + "/" + date;
 		String result =  "";
 
-		Toast.makeText(this, searchURL, Toast.LENGTH_SHORT).show();
-		
-		
-		httpParameters = new BasicHttpParams();
-		HttpConnectionParams.setConnectionTimeout(httpParameters,
-				10000);
-		HttpConnectionParams.setSoTimeout(httpParameters, 20000);
-		httpClient = new DefaultHttpClient(httpParameters);
+		if(programAcron == null || date == null){
+			if (programAcron == null){
+				Toast.makeText(this, "Please, type a valid channel.", Toast.LENGTH_SHORT).show();
+			}else if(date == null )
+				Toast.makeText(this, "Please, select a valid date", Toast.LENGTH_SHORT).show();
+		}else{
 
-		new makeGetRequest(this).execute(searchURL);
+			Toast.makeText(this, searchURL, Toast.LENGTH_SHORT).show();
+
+
+			httpParameters = new BasicHttpParams();
+			HttpConnectionParams.setConnectionTimeout(httpParameters,
+					10000);
+			HttpConnectionParams.setSoTimeout(httpParameters, 20000);
+			httpClient = new DefaultHttpClient(httpParameters);
+
+			new makeGetRequest(this).execute(searchURL);
+		}
+
 	}
-	
+
 	private class makeGetRequest extends AsyncTask<String, Void, String> {
 
 		protected ProgressDialog 		dialog;
@@ -107,7 +116,7 @@ public class SearchActivity extends Base {
 		{
 			this.context = context;
 		}
-		
+
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();	
@@ -118,7 +127,7 @@ public class SearchActivity extends Base {
 
 		@Override
 		protected String doInBackground(String... params) {
-			
+
 			String result = "";
 			try {
 				HttpGet getRequest = new HttpGet(params[0]);
@@ -134,11 +143,11 @@ public class SearchActivity extends Base {
 			}
 			return result;
 		}
-		
+
 		@Override
 		protected void onPostExecute(String result) {
 			super.onPostExecute(result);
-			
+
 			if (dialog.isShowing())
 				dialog.dismiss();
 			Intent intent = new Intent(getBaseContext(), DisplayListActivity.class);
@@ -146,7 +155,7 @@ public class SearchActivity extends Base {
 			startActivity(intent);
 		}
 
-		
+
 		private StringBuilder getResult(HttpResponse response)
 				throws IllegalStateException, IOException {
 			StringBuilder result = new StringBuilder();
