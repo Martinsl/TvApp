@@ -1,9 +1,6 @@
 package com.example.tvapp;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -25,6 +22,9 @@ public class ProgramActivity extends Activity {
 	private TextView detailsView;
 	private String eventDate;
 	private String eventName;
+	private String eventTime;
+	private int eventMinute;
+	private int eventHour;
 	private int eventDay;
 	private int eventMonth;
 	private int eventYear;
@@ -42,9 +42,12 @@ public class ProgramActivity extends Activity {
 			//ageRatingView = (TextView) findViewById(R.id.age_rating);
 			//detailsView = (TextView) findViewById(R.id.program_details);
 			
+			//TODO:
+			//		Set Views only when the attribute exists
 			String programJson = extras.getString("ProgramJson");
 			Log.v("Activity Params", programJson);
 			eventDate = extras.getString("Date");
+			eventTime = extras.getString("Time");
 			
 			Gson gson = new Gson();
 			final Program programGson = gson.fromJson(programJson, Program.class);
@@ -52,6 +55,7 @@ public class ProgramActivity extends Activity {
 			eventName = programGson.Name;
 			
 			formatDate();
+			formatHour();
 			
 			nameView.setText(programGson.Name);
 			descriptionView.setMovementMethod(new ScrollingMovementMethod());
@@ -68,6 +72,9 @@ public class ProgramActivity extends Activity {
 	public void calendarOnClick(View v) {
 		
 		 Calendar cal = Calendar.getInstance();
+		 cal.set(Calendar.SECOND, 0);
+		 cal.set(Calendar.MINUTE, eventMinute);
+		 cal.set(Calendar.HOUR_OF_DAY, eventHour);
 		 cal.set(Calendar.DAY_OF_MONTH, eventDay);
 		 cal.set(Calendar.MONTH, eventMonth);
 		 cal.set(Calendar.YEAR, eventYear);
@@ -76,9 +83,11 @@ public class ProgramActivity extends Activity {
 		 intent.setType("vnd.android.cursor.item/event");
 		 intent.putExtra("beginTime", cal.getTimeInMillis());
 		 intent.putExtra("allDay", false);
-		 //intent.putExtra("rrule", "FREQ=YEARLY");
 		 intent.putExtra("endTime", cal.getTimeInMillis()+60*60*1000);
 		 intent.putExtra("title", eventName);
+		//TODO: 
+		 // 	Create func to get endTime and func to get frequency
+		 //intent.putExtra("rrule", "FREQ=YEARLY"); 
 		 startActivity(intent);
 	}
 	
@@ -86,5 +95,9 @@ public class ProgramActivity extends Activity {
 		eventDay = Integer.parseInt(eventDate.substring(0,2));
 		eventMonth = Integer.parseInt(eventDate.substring(3,5));
 		eventYear = Integer.parseInt(eventDate.substring(6));
+	}
+	public void formatHour() {
+		eventHour = Integer.parseInt(eventTime.substring(0,2));
+		eventMinute = Integer.parseInt(eventTime.substring(3));
 	}
 }

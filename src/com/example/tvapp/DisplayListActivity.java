@@ -27,6 +27,7 @@ public class DisplayListActivity extends Base {
 
 	ListView listView;
 	String date;
+	String programTime;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -52,10 +53,10 @@ public class DisplayListActivity extends Base {
 	                    long arg3) {
 	                // TODO Auto-generated method stub
 	            	String programLink = channelG.programs.get(arg2).link;
-	                Log.v("############","Items " + programLink);
-
+	            	programTime = channelG.programs.get(arg2).time;
+	            	
 	        		String searchURL = baseURL + "get-program/" + programLink;
-	        		new makeGetRequest(DisplayListActivity.this).execute(searchURL);	
+	        		new makeGetRequest(DisplayListActivity.this).execute(searchURL, programTime);	
 	            }
 
 	        });
@@ -102,10 +103,11 @@ public class DisplayListActivity extends Base {
 			
 			if (dialog.isShowing())
 				dialog.dismiss();
-			Log.v("RESULT",result);
+
 			Intent intent = new Intent(getBaseContext(), ProgramActivity.class);
 			intent.putExtra("ProgramJson", result);
 			intent.putExtra("Date", date);
+			intent.putExtra("Time", programTime);
 			startActivity(intent);
 		}
 	}
@@ -144,8 +146,6 @@ class ChannelAdapter extends ArrayAdapter<TvProgram> implements OnClickListener 
 	}
 
 	@Override
-	public void onClick(View v) {
-		Log.v("Clicked row","Clicked");
-		
+	public void onClick(View v) {		
 	}
 }
