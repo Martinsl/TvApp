@@ -127,6 +127,7 @@ public class SearchActivity extends Base {
 				dialog.dismiss();
 			Intent intent = new Intent(getBaseContext(), DisplayListActivity.class);
 			intent.putExtra("ChannelsJson", result);
+			intent.putExtra("Date", date);
 			startActivity(intent);
 		}
 	}

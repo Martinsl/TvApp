@@ -13,22 +13,11 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
-        android:id="@+id/program_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="23dp"
-        android:text="@string/program_description" />
-
-    <TextView
         android:id="@+id/age_rating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/program_name"
-        android:layout_marginEnd="14dp"
         android:layout_marginTop="40dp"
-        android:layout_toStartOf="@+id/program_name"
         android:text="@string/program_rating" />
 
     <TextView
@@ -39,5 +28,23 @@
         android:layout_below="@+id/age_rating"
         android:layout_marginTop="28dp"
         android:text="@string/program_details" />
+
+    <TextView
+        android:id="@+id/program_description"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:text="@string/program_description" />
+
+    <Button
+        android:id="@+id/calendar_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:onClick="calendarOnClick"
+        android:text="Import to calendar" />
 
 </RelativeLayout>

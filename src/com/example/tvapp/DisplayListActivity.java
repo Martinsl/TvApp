@@ -26,6 +26,7 @@ import com.google.gson.Gson;
 public class DisplayListActivity extends Base {
 
 	ListView listView;
+	String date;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,7 @@ public class DisplayListActivity extends Base {
 		Bundle extras = getIntent().getExtras();
 		if (extras != null) {
 			String channelJson = extras.getString("ChannelsJson");
-			Log.v("Activity Params", channelJson);
+			date = extras.getString("Date");
 			
 			Gson gson = new Gson();
 			final TvProgram channelG = gson.fromJson(channelJson, TvProgram.class);
@@ -101,9 +102,10 @@ public class DisplayListActivity extends Base {
 			
 			if (dialog.isShowing())
 				dialog.dismiss();
-			
+			Log.v("RESULT",result);
 			Intent intent = new Intent(getBaseContext(), ProgramActivity.class);
-			intent.putExtra("ProgramJson", programJson);//TODO: fix ws result
+			intent.putExtra("ProgramJson", result);
+			intent.putExtra("Date", date);
 			startActivity(intent);
 		}
 	}
