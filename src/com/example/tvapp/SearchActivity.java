@@ -11,6 +11,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -25,6 +27,9 @@ public class SearchActivity extends Base {
 	TextView display;
 	AutoCompleteTextView channelNameField;
 	String date;
+	String programName;
+	String programAcron;
+	String searchURL;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -69,9 +74,9 @@ public class SearchActivity extends Base {
 	};
 
 	public void searchOnClick(View v) {
-		String programName = channelNameField.getText().toString();
-		String programAcron = acronymHash.get(programName);
-		String searchURL = baseURL + "get-tv-program/" + programAcron + "/" + date;
+		programName = channelNameField.getText().toString();
+		programAcron = acronymHash.get(programName);
+		searchURL = baseURL + "get-tv-program/" + programAcron + "/" + date;
 
 		if(programAcron == null || date == null){
 			if (programAcron == null){
@@ -86,7 +91,7 @@ public class SearchActivity extends Base {
 		}
 	}
 
-	private class makeGetRequest extends AsyncTask<String, Void, String> {
+	public class makeGetRequest extends AsyncTask<String, Void, String> {
 
 		protected ProgressDialog 		dialog;
 		protected Context 				context;
@@ -94,6 +99,14 @@ public class SearchActivity extends Base {
 		public makeGetRequest(Context context)
 		{
 			this.context = context;
+		}
+
+		public makeGetRequest(OnItemClickListener onItemClickListener) {
+			// TODO Auto-generated constructor stub
+		}
+
+		public makeGetRequest(AdapterView<?> listView) {
+			// TODO Auto-generated constructor stub
 		}
 
 		@Override
@@ -128,6 +141,8 @@ public class SearchActivity extends Base {
 			Intent intent = new Intent(getBaseContext(), DisplayListActivity.class);
 			intent.putExtra("ChannelsJson", result);
 			intent.putExtra("Date", date);
+			intent.putExtra("channelName", channelNameField.getText().toString());
+			intent.putExtra("acron", programAcron);
 			startActivity(intent);
 		}
 	}

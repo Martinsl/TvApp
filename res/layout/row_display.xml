@@ -8,8 +8,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_toLeftOf="@+id/program_time"
+        android:layout_toStartOf="@+id/program_time"
         android:layout_marginStart="18dp"
         android:layout_marginTop="27dp"
         android:ellipsize="end"
@@ -23,8 +22,7 @@
         android:layout_alignBaseline="@+id/program_name"
         android:layout_alignBottom="@+id/program_name"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:layout_marginEnd="38dp"
         android:text="@string/program_time" />
 

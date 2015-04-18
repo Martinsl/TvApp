@@ -172,5 +172,7 @@
     <string name="program_details">Program details</string>
     <string name="title_activity_program">ProgramActivity</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_favorites">FavoritesActivity</string>
+    <string name="star">star</string>
 
 </resources>

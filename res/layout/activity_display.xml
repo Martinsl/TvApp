@@ -10,8 +10,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginEnd="14dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="11dp"
         android:text="@string/channel_name"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -21,5 +21,17 @@
         android:layout_height="fill_parent"
         android:layout_below="@+id/channelTitle" >
     </ListView>
+
+    <ImageButton
+        android:id="@+id/favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:background="#00ffffff"
+        android:clickable="true"
+        android:contentDescription="@string/star"
+        android:onClick="onToggleStar"
+        android:src="@drawable/staroff" />
 
 </RelativeLayout>

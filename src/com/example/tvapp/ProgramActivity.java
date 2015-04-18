@@ -2,12 +2,15 @@ package com.example.tvapp;
 
 import java.util.Calendar;
 
+import persistence.DatabaseHandler;
+import persistence.Favorites;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import app.models.Program;
@@ -29,6 +32,9 @@ public class ProgramActivity extends Activity {
 	private int eventMonth;
 	private int eventYear;
 	
+	private Program programGson;
+	private String channel;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -48,9 +54,10 @@ public class ProgramActivity extends Activity {
 			Log.v("Activity Params", programJson);
 			eventDate = extras.getString("Date");
 			eventTime = extras.getString("Time");
+			channel = extras.getString("channel");
 			
 			Gson gson = new Gson();
-			final Program programGson = gson.fromJson(programJson, Program.class);
+		    programGson = gson.fromJson(programJson, Program.class);
 			Log.v("££££££££", programGson.Description);
 			eventName = programGson.Name;
 			
@@ -100,4 +107,6 @@ public class ProgramActivity extends Activity {
 		eventHour = Integer.parseInt(eventTime.substring(0,2));
 		eventMinute = Integer.parseInt(eventTime.substring(3));
 	}
+	
+	
 }

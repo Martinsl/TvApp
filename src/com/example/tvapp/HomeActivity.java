@@ -46,6 +46,7 @@ public class HomeActivity extends Base {
 				startActivity(new Intent(this, SearchActivity.class));
 				break;
 			case R.id.favorites:
+				startActivity(new Intent(this, FavoritesActivity.class));
 				break;
 			case R.id.recent_searches:
 				break;
